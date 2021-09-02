@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const port = 3000;
+const port = process.env.PORT || 80;
 
 const callRoute = require("./Router");
 const url =
@@ -14,7 +14,7 @@ mongoose.connect(url, { useNewUrlParser: true }).then(() => {
 });
 
 app.use(express.json());
-app.get("", (req, res) => {
+app.get("/", (req, res) => {
   res.send("server is been deployed");
 });
 app.use("/api", callRoute);

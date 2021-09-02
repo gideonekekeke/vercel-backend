@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const modelSch = require("./ModelSchema");
 
-router.get("/user", async (req, res) => {
+router.get("/", async (req, res) => {
   const AllData = await modelSch.find();
   res.status(200).json(AllData);
 });
